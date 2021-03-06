@@ -58,7 +58,6 @@ export default {
 </script>
 
 <style>
-
   .navbar {
     background: #5B7BBA;
   }
@@ -82,7 +81,7 @@ export default {
   margin-bottom: auto;
 }
 
-button{
+.type{
   font-size: 40px;
   line-height: 40px;
   font-weight: bolder;
@@ -91,4 +90,4 @@ button{
   border: none;
 }
 
-</styles>
+</style>
