@@ -1,11 +1,10 @@
 <template>
   <div id="FrontPage">
     <b-navbar fixed = "top" sticky = true type = "light" variant="faded">
-      <b-navbar-brand href="#" tag = "nav_title"><span class="mb-0 h1">
-        Karlpol</span>
+      <b-navbar-brand href="#">
+        Karlpol
       </b-navbar-brand>
     </b-navbar>
-      <div class="card">
         <b-card bg-variant="light" v-show="show" class="covid_notice">
           <div>
             <h2>CoronaVirus (COVID-19) </h2>
@@ -38,7 +37,7 @@
             <b-form-group id = "input-g2" label = "Password" label-for = "Password">
               <b-form-input 
                 id = "input-2" 
-                type="text" 
+                type="password" 
                 name="password" 
                 v-model="password" 
                 placeholder="Enter password" 
@@ -51,11 +50,11 @@
 
             <b-button type="submit" variant="primary" class="button">Start</b-button>
           </b-form>
-
-          <a href="/#/signup">Don't have an account?</a>
+          <a href="/#/signup">Don't have an account? Sign up today!</a>
         </b-card>
+
+        <div> AMMK @ Deltahacks 2021</div>
       </div>
-    </div>
 
 </template>
 
@@ -121,12 +120,10 @@ export default {
   }
 
   .navbar-light .navbar-brand{
-    font-size: x-large;
     font-style: normal;
     font-weight: bolder;
     font-size: 40px;
     line-height: 42px;
-
     color: white;
     
   }
@@ -138,7 +135,7 @@ export default {
   }
 
   .fb{
-    color: red;
+    color: rgb(159, 61, 61);
   }
 
 </style>
