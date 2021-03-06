@@ -5,7 +5,6 @@
         Karlpol</span>
       </b-navbar-brand>
     </b-navbar>
-      <div class="card">
         <b-card bg-variant="light" v-show="show" class="covid_notice">
           <div>
             <h2>CoronaVirus (COVID-19) </h2>
@@ -49,10 +48,11 @@
             <p v-if="feedback" class="fb">{{ feedback }}</p>
             <b-button type="submit" variant="primary" class="button">Start</b-button>
           </b-form>
-          <a href="/#/signup">Don't have an account?</a>
+          <a href="/#/signup">Don't have an account? Sign up today!</a>
         </b-card>
+
+        <div> AMMK @ Deltahacks 2021</div>
       </div>
-    </div>
 
 </template>
 
