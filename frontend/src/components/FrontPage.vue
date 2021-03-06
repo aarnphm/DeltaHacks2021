@@ -46,9 +46,16 @@
               </b-form-input>
             </b-form-group> 
             <p v-if="feedback" class="fb">{{ feedback }}</p>
+
+
             <b-button type="submit" variant="primary" class="button">Start</b-button>
           </b-form>
+<<<<<<< HEAD
           <a href="/#/signup">Don't have an account? Sign up today!</a>
+=======
+
+          <a href="/#/signup">Don't have an account?</a>
+>>>>>>> a570d0525d2e833ad45ac2f0075262d964da2419
         </b-card>
 
         <div> AMMK @ Deltahacks 2021</div>
@@ -74,8 +81,8 @@ export default {
     login(){
         //authenticate
         const auth = true;
-        if (auth){
-          this.$router.push("./homepage")
+        if (auth && this.username){
+          this.$router.push({ path: "./homepage", query:{username: this.username}})
         }else{
           this.feedback = "Incorrect username or password."
         }
@@ -98,6 +105,7 @@ export default {
     margin-right: auto;
     width: 100%;
     max-width: 600px;
+
   }
   .login_form{
     margin-left: auto;
@@ -131,7 +139,10 @@ export default {
     position: relative;
     margin: 0;
     padding-top: 0px;
+  }
 
+  .fb{
+    color: red;
   }
 
 </style>
