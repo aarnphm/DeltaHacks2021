@@ -28,7 +28,13 @@ export default {
   },
 
   methods: {
+    provide(){
 
+    },
+
+    request(){
+
+    }
   },
 
   beforeCreate(){
