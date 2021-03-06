@@ -2,6 +2,7 @@
   <div id="HomePage">
     <b-navbar sticky = true type = "Light" variant="faded">
       <b-navbar-brand href="#">
+        <img src="../assets/taxiwhite.png" class="logo" alt="logo">
         Karlpol
       </b-navbar-brand>
     </b-navbar>
@@ -63,7 +64,12 @@ export default {
   .navbar {
     background: #5B7BBA;
   }
-
+  .logo{
+    border: none;
+    margin-left: auto;
+    margin-right: auto;
+    width: 45px;
+  }
   .navbar-Light .navbar-brand{
 
     color: white;

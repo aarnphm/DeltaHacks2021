@@ -1,7 +1,8 @@
 <template>
   <div id="FrontPage">
-    <b-navbar fixed = "top" sticky = true type = "light" variant="faded">
+    <b-navbar fixed = "top" sticky = true type = "Light" variant="faded">
       <b-navbar-brand href="#">
+        <img src="../assets/taxiwhite.png" class="logo" alt="logo">
         Karlpol
       </b-navbar-brand>
     </b-navbar>
@@ -93,6 +94,12 @@ export default {
   .card {
     background: white
   }
+  .logo{
+    border: none;
+    margin-left: auto;
+    margin-right: auto;
+    width: 45px;
+  }
   .front_img{
     position: center;
     border: none;
@@ -113,6 +120,7 @@ export default {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
+    margin-bottom: 10px;
   }
 
   .navbar {
