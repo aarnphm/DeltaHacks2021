@@ -1,19 +1,37 @@
 <template>
   <div id="HomePage">
-    
-    <h1> Greetings, {{username}} </h1>
+    <b-navbar sticky = true type = "Light" variant="faded">
+      <b-navbar-brand href="#">
+        Karlpol
+      </b-navbar-brand>
+    </b-navbar>
+    <h1 class="intro"> Greetings, {{username}} </h1>
     <h1>Help us identify which type of user you are: </h1>
 
-    <div class="">
-        <p class="intro"> Providing a carpool ride to other users is a good favor to other people while not harming any of your benefits. Our application will post your status online to allow other users to request.</p>
-        <b-button class = "type" variant="primary"> Provide a carpool ride </b-button>   
-        <p class="intro"> Requesting a carpool ride can be easy and convenient. This will grant you access to all the carpool drivers nearby your location. Wish you have a safe and happy ride.</p> 
-        <b-button class = "type" variant="primary"> Request a carpool ride </b-button>
+    <div class="button-group-1">
+        <b-button block class = "type" variant="Light"> 
+          <div class="hero-button">
+            <a href="#">
+              <span style="font-size:40px; color:#5B7BBA">Driver &emsp; &#10140;</span>
+            </a>
+          </div>
+        </b-button>
+        <b-button block class = "type" variant="Light"> 
+          <div class="hero-button">
+            <a href="#">
+              <span style="font-size:40px; color:#5B7BBA">Driver &emsp; &#10140;</span>
+            </a>
+          </div>
+        </b-button>
     </div>
 
-
-
+  <h4 class="intro"> User Acknowledgement </h4>
+  <div class="intro">
+  <p> Providing a carpool ride to other users is a good favor to other people while not harming any of your benefits. Our application will post your status online to allow other users to request.</p>
+  <p> Requesting a carpool ride can be easy and convenient. This will grant you access to all the carpool drivers nearby your location. Wish you have a safe and happy ride.</p> 
   </div>
+  </div>
+
 </template>
 
 <script>
@@ -41,17 +59,36 @@ export default {
 
 <style>
 
-.type{
-  width: 200px;
-  height: 200px;
-  background:paleturquoise
-}
+  .navbar {
+    background: #5B7BBA;
+  }
+
+  .navbar-Light .navbar-brand{
+
+    color: white;
+    font-style: normal;
+    font-weight: bolder;
+    font-size: 40px;
+    line-height: 42px;
+
+  }
 
 .intro{
   width: 400px;
   position: center;
   border: none;
-  margin: auto;
+  margin:auto;
+  margin-top: 50px;
+  margin-bottom: auto;
 }
 
-</style>
+button{
+  font-size: 40px;
+  line-height: 40px;
+  font-weight: bolder;
+  height:200px;
+  word-wrap: break-word;
+  border: none;
+}
+
+</styles>
