@@ -9,18 +9,14 @@
     <h1>Help us identify which type of user you are: </h1>
 
     <div class="button-group-1">
-        <b-button block class = "type" variant="Light"> 
+        <b-button block class = "type" variant="Light" v-on:click="provide"> 
           <div class="hero-button">
-            <a href="#">
-              <span style="font-size:40px; color:#5B7BBA">Driver &emsp; &#10140;</span>
-            </a>
+              <span style="font-size:40px; color:#5B7BBA">Driver &emsp; &#10140;</span> 
           </div>
         </b-button>
-        <b-button block class = "type" variant="Light"> 
+        <b-button block class = "type" variant="Light" v-on:click="request"> 
           <div class="hero-button">
-            <a href="#">
-              <span style="font-size:40px; color:#5B7BBA">Driver &emsp; &#10140;</span>
-            </a>
+              <span style="font-size:40px; color:#5B7BBA">Rider &emsp; &#10140;</span>    
           </div>
         </b-button>
     </div>
@@ -47,11 +43,11 @@ export default {
 
   methods: {
     provide(){
-
+        this.$router.push({ path: "homepage/driverpage", query:{username: this.username}})
     },
 
     request(){
-
+        this.$router.push({ path: "homepage/requestpage", query:{username: this.username}})
     }
   },
 

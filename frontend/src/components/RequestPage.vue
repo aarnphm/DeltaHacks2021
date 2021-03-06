@@ -1,6 +1,8 @@
 <template>
+  
   <div id="RequestPage">
     <div class="filter">
+        <h2> To narrow down the options for your carpool, our app needs you to provide the following information: </h2>
         <b-form @submit.prevent="find" class="filter_form">
             
             <b-form-group id = "input-g1" label = "Starting Address" label-for = "start_address">
@@ -27,7 +29,7 @@
               </b-form-input>
             </b-form-group>
 
-            <b-form-group id = "input-g3" label = "Radius of searching (in km)" label-for = "Radius">
+            <b-form-group id = "input-g3" label = "Radius of Searching (in km)" label-for = "Radius">
               <b-form-input
                 id = "input-3" 
                 type="range" 
@@ -39,27 +41,44 @@
                 required
               >
               </b-form-input>
-              <b-form-input class="textInput" type="text" id="textInput" value="">
+              <b-form-input class="textInput" type="text" id="textInput" value="13" disabled>
               </b-form-input>
             </b-form-group>
 
         </b-form>
     </div>
-
+    <MglMap :accessToken="accessToken" :mapStyle="mapStyle" :center="coordinates">
+        <MglMarker :coordinates="coordinates" color="blue" />
+        <MglNavigationControl position="top-right" />
+        <MglGeolocateControl position="top-right" />
+        
+    </MglMap>
   </div>
 </template>
 
 <script>
+import Mapbox from "mapbox-gl";
+import { MglMap,  MglNavigationControl, MglGeolocateControl, MglMarker } from "vue-mapbox";
+
+
 
 export default {
-    name: 'MapPage',
-
+    name: 'RequestPage',
+    components: {
+        MglMap,  
+        MglNavigationControl,
+        MglGeolocateControl,
+        MglMarker
+    },
     data(){
         return {
             start_address: null,
             destination: null,
-            radius: null
-
+            radius: null,
+            accessToken: 'pk.eyJ1IjoibWFybG9uNGRhc2hlbiIsImEiOiJja2x5OXh6b2MzaHUxMm9tcGswNDQ5Mjl5In0.ToKpQYWEXcexzrlmLpDDdQ', // your access token. Needed if you using Mapbox maps
+            mapStyle: 'mapbox://styles/mapbox/streets-v11', // your map style
+            coordinates: [-40, 10],
+        
         }
     },
 
@@ -67,7 +86,10 @@ export default {
 
     },
 
-
+    created() {
+    // We need to set mapbox-gl library here in order to use it in template
+        this.mapbox = Mapbox;
+    }
 }
 </script>
 
@@ -75,7 +97,7 @@ export default {
 
 .textInput{
     text-align: center;
-    
+
 }
 
 </style>
