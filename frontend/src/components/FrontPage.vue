@@ -42,9 +42,9 @@
               </b-form-input>
             </b-form-group> 
             <p v-if="feedback" class="fb">{{ feedback }}</p>
-            <b-button class="button">Start</b-button>
+            <b-button type = "submit" class="button">Start</b-button>
           </b-form>
-
+ 
           <a href="/#/signup">Don't have an account?</a>
       </div>
     </div>
@@ -68,8 +68,8 @@ export default {
     login(){
         //authenticate
         const auth = true;
-        if (auth){
-          this.$router.push("./homepage")
+        if (auth && this.username){
+          this.$router.push({ path: "./homepage", query:{username: this.username}})
         }else{
           this.feedback = "Incorrect username or password."
         }
@@ -92,8 +92,11 @@ export default {
     margin-right: auto;
     width: 100%;
     max-width: 600px;
-    
 
+  }
+
+  .fb{
+    color: red;
   }
 
 </style>
