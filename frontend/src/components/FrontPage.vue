@@ -1,31 +1,53 @@
 <template>
   <div id="FrontPage">
-    
-    <div class="card">
-        <div v-show="show" class="covid">
-          <h2>CoronaVirus(Covid-19) </h2>
-          <p>Help protect yourself and others.</p>
-          <p>No masks. No ride.</p>
-          <button v-on:click="show = false">I am aware.</button>
-        </div>
+      <div class="card">
+        <b-card bg-variant="light" v-show="show" class="covid_notice">
+          <div>
+            <h2>CoronaVirus (COVID-19) </h2>
+            <p>Help protect yourself and others.</p>
+            <p>No masks. No ride.</p>
+            <b-button variant="info" v-on:click="show = false">I am aware.</b-button>
+          </div>
+        </b-card>
+        <b-card class = "front_img" overlay v-bind:img-src = "require('../assets/covid_carsharing.png')" img-alt="Card image" img-bottom title = "Share your journeys." title-tag ='h1'> 
+        </b-card>
+        
 
-        <h1> Welcome to Karlpol</h1>
+          
 
-        <h2> Please login: </h2>
-        <form @submit.prevent="login">
-            <label for="Username"> Username:  </label>
-            <input type="text" name="username" v-model="username" placeholder="Enter here">
-            <label for="Username"> Password:  </label>
-            <input type="text" name="password" v-model="password" placeholder="Enter here">
+          <h2> Pool it. </h2>
+          <b-form @submit.prevent="login">
+
+            <b-form-group id = "input-g1" label = "Username" label-for = "Username">
+              <b-form-input
+                id = "input-1" 
+                type="text" 
+                name="username" 
+                v-model="username" 
+                placeholder="Enter username" 
+                required
+              >
+              </b-form-input>
+            </b-form-group>
+
+            <b-form-group id = "input-g2" label = "Password" label-for = "Password">
+              <b-form-input 
+                id = "input-2" 
+                type="text" 
+                name="password" 
+                v-model="password" 
+                placeholder="Enter password" 
+                required
+              >
+              </b-form-input>
+            </b-form-group> 
             <p v-if="feedback" class="fb">{{ feedback }}</p>
-            <button class="button">Start Your Carpool Experience</button>
-        </form>
+            <b-button class="button">Start</b-button>
+          </b-form>
 
-        <a href="/#/signup">Don't have an account?</a>
+          <a href="/#/signup">Don't have an account?</a>
+      </div>
     </div>
-    
-
-  </div>
 </template>
 
 <script>
@@ -59,6 +81,19 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+  .card {
+    background: white
+  }
+  .front_img{
+    position: center;
+    border: none;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 600px;
+    
+
+  }
 
 </style>
