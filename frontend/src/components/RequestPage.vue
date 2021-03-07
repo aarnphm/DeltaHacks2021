@@ -87,7 +87,7 @@ export default {
             accessToken: 'pk.eyJ1IjoibWFybG9uNGRhc2hlbiIsImEiOiJja2x5OXh6b2MzaHUxMm9tcGswNDQ5Mjl5In0.ToKpQYWEXcexzrlmLpDDdQ', // your access token. Needed if you using Mapbox maps
             mapStyle: 'mapbox://styles/mapbox/streets-v11', // your map style
             coordinates: [-40, 10],
-        
+            zoom: 16
         }
     },
 
@@ -141,6 +141,11 @@ export default {
     margin-right: auto;
     width: 100%;
     padding: 10px;
+  }
+  MglMarker{
+    margin:0;
+    max-width:none;
+    height : none;
   }
 
 </style>

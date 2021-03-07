@@ -1,4 +1,5 @@
 <template>
+
   <div id="SignUp">
     <b-navbar fixed = "top" type = "Light" variant="faded">
       <b-navbar-brand href="#">
