@@ -1,41 +1,78 @@
 <template>
+  <div>
     <div>
-      <MglMap :accessToken="accessToken" :mapStyle="mapStyle" :center="coordinates">
-        <MglMarker :coordinates="coordinates" color="blue" />
-        <MglNavigationControl position="top-right" />
-        <MglGeolocateControl position="top-right" />
-        
-    </MglMap>
+      <h2>Search and add a pin</h2>
+      <label>
+        <gmap-autocomplete
+          @place_changed="setPlace">
+        </gmap-autocomplete>
+        <button @click="addMarker">Add</button>
+      </label>
+      <br/>
+
     </div>
+    <br>
+    <gmap-map
+      :center="center"
+      :zoom="12"
+      style="width:100%;  height: 400px;"
+    >
+      <gmap-marker
+        :key="index"
+        v-for="(m, index) in markers"
+        :position="m.position"
+        @click="center=m.position"
+      ></gmap-marker>
+    </gmap-map>
+  </div>
 </template>
 
 <script>
-import Mapbox from "mapbox-gl";
-import { MglMap,  MglNavigationControl, MglGeolocateControl, MglMarker } from "vue-mapbox";
+export default {
+  name: "GoogleMap",
+  data() {
+    return {
+      // default to Montreal to keep it simple
+      // change this to whatever makes sense
+      center: { lat: 45.508, lng: -73.587 },
+      markers: [],
+      places: [],
+      currentPlace: null
+    };
+  },
 
- export default{
-    components: {
-        MglMap,  
-        MglNavigationControl,
-        MglGeolocateControl,
-        MglMarker
+  mounted() {
+    this.geolocate();
+  },
+
+  methods: {
+    // receives a place object via the autocomplete component
+    setPlace(place) {
+      this.currentPlace = place;
     },
-
-    data(){
-        return {
-            accessToken: 'pk.eyJ1IjoibWFybG9uNGRhc2hlbiIsImEiOiJja2x5OXh6b2MzaHUxMm9tcGswNDQ5Mjl5In0.ToKpQYWEXcexzrlmLpDDdQ', // your access token. Needed if you using Mapbox maps
-            mapStyle: 'mapbox://styles/mapbox/streets-v11', // your map style
-            coordinates: [-40, 10],
-        
-        }
+    addMarker() {
+      if (this.currentPlace) {
+        const marker = {
+          lat: this.currentPlace.geometry.location.lat(),
+          lng: this.currentPlace.geometry.location.lng()
+        };
+        this.markers.push({ position: marker });
+        this.places.push(this.currentPlace);
+        this.center = marker;
+        this.currentPlace = null;
+      }
     },
-
-    created() {
-    // We need to set mapbox-gl library here in order to use it in template
-        this.mapbox = Mapbox;
+    geolocate: function() {
+      navigator.geolocation.getCurrentPosition(position => {
+        this.center = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+      });
     }
+  }
+};
 
- }
 </script>
 
 <style>

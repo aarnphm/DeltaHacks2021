@@ -4,9 +4,16 @@ import router from './router/index'
 import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+import * as VueGoogleMaps from "vue2-google-maps";
 
 
 Vue.use(BootstrapVue)
+Vue.use(VueGoogleMaps, {
+  load: {
+    Key: "AIzaSyAxrWJXZ_2wq4ihvkgIsrQ9AwCKxxJ2kMk",
+    libraries: "places",
+  }
+})
 Vue.config.productionTip = false
 
 new Vue({

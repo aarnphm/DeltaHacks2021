@@ -10,10 +10,12 @@
   "dependencies": {
     "bootstrap-vue": "^2.21.2",
     "core-js": "^3.6.5",
+    "heremap": "^2.2.6",
     "mapbox-gl": "^2.1.1",
     "vue": "^2.6.11",
     "vue-mapbox": "^0.4.1",
-    "vue-router": "^3.5.1"
+    "vue-router": "^3.5.1",
+    "vue2-google-maps": "^0.10.7"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
