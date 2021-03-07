@@ -23,7 +23,7 @@
 
     <div class="filter">
         <h2 class = "filter-text"> Where are you going? </h2>
-        <b-form @submit.prevent="find" class="filter_form">
+        <b-form @submit.prevent="find_match" class="filter_form">
             
             <b-form-group id = "input-g1" label = "Starting Address" label-for = "start_address">
               <gmap-autocomplete :value="start_address"></gmap-autocomplete>
@@ -85,13 +85,17 @@ export default {
             destination: null,
             radius: null,
             date: null,
+            center: { lat: 45.508, lng: -73.587 },
+            markers: [],
+            places: [],
+            currentPlace: null
         }
     },
 
     methods: {
         find_match(){
 
-            
+            console.log(this.start_address)
         },
 
         geolocate: function() {
