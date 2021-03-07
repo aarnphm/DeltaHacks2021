@@ -1,6 +1,0 @@
-build
-coverage
-tsconfig.json
-tslint.json
-*.map
-webpack.config.js
