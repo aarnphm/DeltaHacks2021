@@ -148,4 +148,8 @@ export default {
     height : none;
   }
 
+  MglNavigationControl{
+    width : 100px;
+  }
+
 </style>
