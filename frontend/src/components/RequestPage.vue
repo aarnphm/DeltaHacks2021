@@ -7,6 +7,9 @@
         Karlpol
       </b-navbar-brand>
     </b-navbar>
+
+    <MapPage/>
+
     <div class="filter">
         <h2 class = "filter-text"> Where are you going? </h2>
         <b-form @submit.prevent="find" class="filter_form">
@@ -50,27 +53,47 @@
               <b-form-input class="textInput" type="text" id="textInput" value="13" disabled>
               </b-form-input>
             </b-form-group>
+
+            <b-form-group id = "input-g4" label = "Date" label-for = "date">
+              <b-form-input
+                id = "input-4" 
+                type="date" 
+                name="date"
+                v-model="date" 
+                required
+              >
+              </b-form-input>
+            </b-form-group>
             <div>
               Provide information to narrow down your carpool options.
             </div>
 
         </b-form>
     </div>
-
+    
 
   </div>
 </template>
 
 <script>
 
+import MapPage from "./MapPage"
+
+
 export default {
     name: 'RequestPage',
+
+    components: {
+        MapPage
+    },
 
     data(){
         return {
             start_address: null,
             destination: null,
             radius: null,
+            date: null,
+            location: '36 Hollywood North, Hamilton, ON',
         }
     },
 

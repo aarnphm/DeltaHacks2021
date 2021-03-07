@@ -64,11 +64,19 @@ export default {
     },
     geolocate: function() {
       navigator.geolocation.getCurrentPosition(position => {
+        const lati = position.coords.latitude;
+        const long = position.coords.longitude;
         this.center = {
-          lat: position.coords.latitude,
-          lng: position.coords.longitude
+          lat: lati,
+          lng: long
         };
+        const marker = {
+          lat: lati,
+          lng: long
+        };
+        this.markers.push({ position: marker});
       });
+
     }
   }
 };
