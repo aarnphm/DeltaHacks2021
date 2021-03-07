@@ -1,6 +1,7 @@
 <template>
   
   <div id="RequestPage">
+
     <div class="filter">
         <h2> To narrow down the options for your carpool, our app needs you to provide the following information: </h2>
         <b-form @submit.prevent="find" class="filter_form">
