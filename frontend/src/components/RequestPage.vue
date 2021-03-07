@@ -8,34 +8,29 @@
       </b-navbar-brand>
     </b-navbar>
 
-    <MapPage/>
+    <gmap-map
+      :center="center"
+      :zoom="12"
+      style="width:100%;  height: 400px;"
+    >
+      <gmap-marker
+        :key="index"
+        v-for="(m, index) in markers"
+        :position="m.position"
+        @click="center=m.position"
+      ></gmap-marker>
+    </gmap-map>
 
     <div class="filter">
         <h2 class = "filter-text"> Where are you going? </h2>
         <b-form @submit.prevent="find" class="filter_form">
             
             <b-form-group id = "input-g1" label = "Starting Address" label-for = "start_address">
-              <b-form-input
-                id = "input-1" 
-                type="text" 
-                name="start_address" 
-                v-model="start_address" 
-                placeholder="Current location" 
-                required
-              >
-              </b-form-input>
+              <gmap-autocomplete :value="start_address"></gmap-autocomplete>
             </b-form-group>
 
             <b-form-group id = "input-g2" label = "Destination" label-for = "Destination">
-              <b-form-input
-                id = "input-2" 
-                type="text" 
-                name="destination" 
-                v-model="destination" 
-                placeholder="Search" 
-                required
-              >
-              </b-form-input>
+              <gmap-autocomplete :value="destination"></gmap-autocomplete>
             </b-form-group>
 
             <b-form-group id = "input-g3" label = "Radius of Searching (in km)" label-for = "Radius">
@@ -68,6 +63,8 @@
               Provide information to narrow down your carpool options.
             </div>
 
+            <b-button type="submit" v-on:click="find_match" variant="primary" class="button">  Submit </b-button>
+
         </b-form>
     </div>
     
@@ -77,15 +74,10 @@
 
 <script>
 
-import MapPage from "./MapPage"
 
 
 export default {
     name: 'RequestPage',
-
-    components: {
-        MapPage
-    },
 
     data(){
         return {
@@ -93,13 +85,36 @@ export default {
             destination: null,
             radius: null,
             date: null,
-            location: '36 Hollywood North, Hamilton, ON',
         }
     },
 
     methods: {
+        find_match(){
 
+            
+        },
+
+        geolocate: function() {
+        navigator.geolocation.getCurrentPosition(position => {
+        const lati = position.coords.latitude;
+        const long = position.coords.longitude;
+        this.center = {
+          lat: lati,
+          lng: long
+        };
+        const marker = {
+          lat: lati,
+          lng: long
+        };
+        this.markers.push({ position: marker});
+      });
+
+    }
     },
+
+    mounted() {
+    this.geolocate();
+  },
 
 }
 </script>
@@ -144,14 +159,8 @@ export default {
     width: 100%;
     padding: 10px;
   }
-  MglMarker{
-    margin:0;
-    max-width:none;
-    height : none;
-  }
-
-  MglNavigationControl{
-    width : 100px;
+  .button{
+      margin-top: 20px;
   }
 
 </style>

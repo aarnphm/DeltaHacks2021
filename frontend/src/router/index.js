@@ -4,7 +4,6 @@ import Vue from "vue"
 import SignUp from '@/components/SignUp'
 import FrontPage from '@/components/FrontPage'
 import HomePage from '@/components/HomePage'
-import MapPage from '@/components/MapPage'
 import RequestPage from '@/components/RequestPage'
 import DriverPage from '@/components/DriverPage'
 
@@ -33,12 +32,6 @@ const router = new VueRouter({
   
       },
 
-      {
-        path: '/MapPage',
-        name: 'MapPage',
-        component: MapPage,
-  
-      },
       {
         path: '/Homepage/Requestpage',
         name: 'Requestpage',

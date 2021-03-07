@@ -76,7 +76,8 @@ export default {
       username: null,
       password: null,
       name: null,
-      email: null
+      email: null,
+      feedback: null
     }
   },
 
