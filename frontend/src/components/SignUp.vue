@@ -1,6 +1,6 @@
 <template>
   <div id="SignUp">
-    <b-navbar fixed = "top" sticky = true type = "Light" variant="faded">
+    <b-navbar fixed = "top" type = "Light" variant="faded">
       <b-navbar-brand href="#">
         <img src="../assets/taxiwhite.png" class="logo" alt="logo">
         Karlpol

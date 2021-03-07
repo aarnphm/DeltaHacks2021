@@ -1,6 +1,6 @@
 <template>
   <div id="FrontPage">
-    <b-navbar fixed = "top" sticky = true type = "Light" variant="faded">
+    <b-navbar fixed = "top" type = "Light" variant="faded">
       <b-navbar-brand href="#">
         <img src="../assets/taxiwhite.png" class="logo" alt="logo">
         Karlpol
@@ -89,6 +89,7 @@ export default {
     login(){
         //authenticate
         const auth = true;
+
         if (auth && this.username){
           this.$router.push({ path: "./homepage", query:{username: this.username}})
         }else{

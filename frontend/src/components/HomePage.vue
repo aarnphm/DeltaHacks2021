@@ -1,6 +1,6 @@
 <template>
   <div id="HomePage">
-    <b-navbar sticky = true type = "Light" variant="faded">
+    <b-navbar type = "Light" variant="faded">
       <b-navbar-brand href="#">
         <img src="../assets/taxiwhite.png" class="logo" alt="logo">
         Karlpol

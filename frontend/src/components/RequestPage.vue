@@ -1,8 +1,14 @@
 <template>
   
   <div id="RequestPage">
+    <b-navbar type = "Light" variant="faded">
+      <b-navbar-brand href="#">
+        <img src="../assets/taxiwhite.png" class="logo" alt="logo">
+        Karlpol
+      </b-navbar-brand>
+    </b-navbar>
     <div class="filter">
-        <h2> To narrow down the options for your carpool, our app needs you to provide the following information: </h2>
+        <h2 class = "filter-text"> Where are you going? </h2>
         <b-form @submit.prevent="find" class="filter_form">
             
             <b-form-group id = "input-g1" label = "Starting Address" label-for = "start_address">
@@ -11,7 +17,7 @@
                 type="text" 
                 name="start_address" 
                 v-model="start_address" 
-                placeholder="Enter starting address" 
+                placeholder="Current location" 
                 required
               >
               </b-form-input>
@@ -23,7 +29,7 @@
                 type="text" 
                 name="destination" 
                 v-model="destination" 
-                placeholder="Enter your destination" 
+                placeholder="Search" 
                 required
               >
               </b-form-input>
@@ -44,6 +50,9 @@
               <b-form-input class="textInput" type="text" id="textInput" value="13" disabled>
               </b-form-input>
             </b-form-group>
+            <div>
+              Provide information to narrow down your carpool options.
+            </div>
 
         </b-form>
     </div>
@@ -93,11 +102,45 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
-.textInput{
-    text-align: center;
 
-}
+  .navbar {
+    background: #5B7BBA;
+  }
+  .logo{
+    border: none;
+    margin-left: auto;
+    margin-right: auto;
+    width: 45px;
+  }
+  .navbar-Light .navbar-brand{
+
+    color: white;
+    font-style: normal;
+    font-weight: bolder;
+    font-size: 40px;
+    line-height: 42px;
+
+  }
+
+  .filter_form{
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 240px;
+    padding: 10px;
+  }
+  .filter-text{
+    margin-top: 50px;
+    padding: 10px;
+  }
+  .filter{
+    background: rgba(216, 227, 255, 0.41);
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    padding: 10px;
+  }
 
 </style>
