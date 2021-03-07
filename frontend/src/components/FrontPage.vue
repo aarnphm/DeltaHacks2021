@@ -1,11 +1,23 @@
 <template>
   <div id="FrontPage">
-    <b-navbar fixed = "top" sticky = true type = "Light" variant="faded">
+    <b-navbar fixed = "top" type = "Light" variant="faded">
       <b-navbar-brand href="#">
         <img src="../assets/taxiwhite.png" class="logo" alt="logo">
         Karlpol
       </b-navbar-brand>
+      <b-navbar-nav class="ml-auto" right>
+        <b-nav-item varient="dark" href="#">Github</b-nav-item>
+        <b-nav-item varient="dark" href="#">DevPost</b-nav-item>
+      </b-navbar-nav>
+
+      <b-nav-item-dropdown varient="dark" text="Lang" right>
+          <b-dropdown-item varient="dark" href="#">EN</b-dropdown-item>
+          <b-dropdown-item varient="dark" href="#">FR</b-dropdown-item>
+          <b-dropdown-item varient="dark" href="#">RU</b-dropdown-item>
+          <b-dropdown-item varient="dark" href="#">FA</b-dropdown-item>
+        </b-nav-item-dropdown>
     </b-navbar>
+
         <b-card bg-variant="light" v-show="show" class="covid_notice">
           <div>
             <h2>CoronaVirus (COVID-19) </h2>
@@ -77,6 +89,7 @@ export default {
     login(){
         //authenticate
         const auth = true;
+
         if (auth && this.username){
           this.$router.push({ path: "./homepage", query:{username: this.username}})
         }else{
@@ -134,6 +147,14 @@ export default {
     line-height: 42px;
     color: white;
     
+  }
+  .navbar-light .navbar-nav .nav-item{
+    color: white;
+    font:white;
+  }
+  .text-danger{
+    color: white;
+    font:white;
   }
 
   .frontpage{
